@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title th:text="#{usuario.cadastrarUsuario}">Cadastrar Usuário</title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+            h1, p {
+                color: #343a40;
+                margin-bottom: 20px;
+            }
+            .container {
+                margin-top: 40px;
+            }
+            .form-control {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            .btn-info {
+                background-color: #17a2b8;
+                border-color: #17a2b8;
+                margin-top: 10px;
+            }
+            a {
+                margin-top: 15px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container text-center">
+            <h1 th:text="#{usuario.cadastrarUsuario}">Cadastrar Usuário</h1>
+            <hr>
+            <p th:text="#{usuario.cadastreUmNovoUsuario}">Cadastre um novo Usuário</p>
+            <form action="#" th:action="@{/usuarios/save}" th:object="${usuario}" method="POST">
+                <div class="form-group">
+                    <label th:for="nomeCompleto" th:text="#{usuario.nomeCompleto}">Nome Completo</label>
+                    <input type="text" th:field="*{nomeCompleto}" class="form-control mb-3">
+                </div>
+                <div class="form-group">
+                    <label th:for="nomeUsuario" th:text="#{usuario.nomeDeUsuario}">Nome de Usuário</label>
+                    <input type="text" th:field="*{nomeUsuario}" class="form-control mb-3">
+                </div>
+                <div class="form-group">
+                    <label th:for="dataNascimento" th:text="#{usuario.dataDeNascimento}">Data de Nascimento</label>
+                    <input type="date" th:field="*{dataNascimento}" class="form-control mb-3">
+                </div>
+                <div class="form-group">
+                    <label th:for="email" th:text="#{usuario.email}">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control mb-3">
+                </div>
+                <div class="form-group">
+                    <label th:for="senha" th:text="#{usuario.senha}">Senha</label>
+                    <input type="password" th:field="*{senha}" class="form-control mb-3">
+                </div>
+                <button th:text="#{usuario.cadastrarUsuario}" type="submit" class="btn btn-info btn-lg col-4">Cadastrar Usuário</button>
+            </form>
+            <hr>
+            <a th:text="#{usuario.voltarParaAListaDeUsuario}" th:href="@{/usuarios}" class="btn btn-outline-secondary">Voltar para a lista de Usuário</a>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk3K5PqplrfTEEZG1IbbvYUew+OrCXaRkfj9JRM"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+    </body>
+</html>

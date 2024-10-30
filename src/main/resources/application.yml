@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    check-template-location: false
+  profiles:
+    active: oracle, prod
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

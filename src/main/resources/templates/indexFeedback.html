@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title th:text="#{feedback.listaDeFeedback}">Lista de Feedback</title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+            h1 {
+                margin: 20px 0;
+                color: #343a40;
+            }
+            .container {
+                margin-top: 30px;
+            }
+            .table {
+                margin-top: 20px;
+            }
+            .btn-primary, .btn-danger {
+                margin-right: 5px;
+            }
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+            .btn-danger {
+                background-color: #dc3545;
+                border-color: #dc3545;
+            }
+            .btn-cadastrar {
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 th:text="#{feedback.listaDeFeedback}" class="text-center">Lista de Feedback</h1>
+            <div class="text-center">
+                <a th:text="#{feedback.cadastrarFeedback}" th:href="@{/feedbacks/addNew}" class="btn btn-primary btn-sm btn-cadastrar">Cadastrar Feedback</a>
+                <a th:text="#{paginaInicial}" th:href="@{/home}" class="btn btn-primary btn-sm btn-cadastrar">Página Inicial</a>
+            </div>
+            <table class="table table-striped table-bordered table-hover table-responsive-md">
+                <thead class="thead-dark">
+                <tr>
+                    <th th:text="#{feedback.avaliacao}">Avaliação</th>
+                    <th th:text="#{feedback.comentario}">Comentário</th>
+                    <th th:text="#{feedback.data}">Data</th>
+                    <th th:text="#{acoes}">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="feedback:${allFeedbackList}">
+                    <td th:text="${feedback.avaliacao}"></td>
+                    <td th:text="${feedback.comentario}"></td>
+                    <td th:text="${feedback.data}"></td>
+                    <td>
+                        <a th:href="@{/feedbacks/showFormForUpdate/{id}(id=${feedback.id})}"
+                           th:text="#{atualizar}"
+                           class="btn btn-primary btn-sm">Atualizar</a>
+                        <a th:href="@{/feedbacks/deleteFeedback/{id}(id=${feedback.id})}"
+                           th:text="#{excluir}"
+                           class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk3K5PqplrfTEEZG1IbbvYUew+OrCXaRkfj9JRM"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+    </body>
+</html>
