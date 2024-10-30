@@ -8,4 +8,4 @@
 
 # Vídeo do projeto
 
-https://youtu.be/jp53xUy6QJA
+https://www.youtube.com/watch?v=-Q72wkAxEXg
